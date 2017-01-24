@@ -132,4 +132,103 @@ Bash Script Tutorial
             tail [file]
             ```
             * `-n [line-number]`: show the last `[line-number]` lines.
+
+6. **Peek processes.**
+
+    * *Show all* processes belong to current user.
+
+        ```bash
+        ps
+        ```
+        * `-ef`: show all processes on the system.
+        * `-l`: long format to show full information.
+    * *Stop* a process:
+
+        ```bash
+        kill [pid]
+        killall [process-regex]
+        ```
     
+7. **Monitor disk spaces.**
+
+    * *Show all* media disks attached to the computer.
+
+        ```bash
+        mount
+        ```
+    
+    * Show available *disk spaces* on device:
+
+        ```bash
+        df
+        ```
+        * `-h`: human-readable format
+
+    * Show *disk usages*:
+
+        ```bash
+        du
+        ```
+        * `-h`: human-readable format
+
+8. **Working with data files.**
+
+    * *Sort* data:
+
+        ```bash
+        sort [file-name]
+        ```
+        * Sort file line by line using lexicographical order.
+        * `-n`: sort by treating each line a number.
+        * `-M`: sort by recognizing the first 3 letters as Month.
+
+    * *Search* data:
+
+        ```bash
+        grep [options] [pattern-regex] [file]
+        ```
+        * [options]: 
+            * `-v`: reverse search (anti-pattern).
+            * `-n`: show line number.
+            * `-c`: count how many matches.
+            * `-e [pattern]`: to specify multi patterns, add `-e` before and concatenate them to the command line.
+        * [pattern-regex]: pattern regular expression
+
+    * *Compress* data:
+
+        * `.bz2` extension:
+
+            ```bash
+            bzip2 [file-folder]
+            ```
+
+        * `.z' extension:
+
+            ```bash
+            compress [file-folder]
+            ```
+        
+        * `.zip` extension:
+
+            ```bash
+            zip [file-folder]
+            ```
+
+        * `.gz' extension:
+
+            ```bash
+            gzip [file-folder]
+            ```
+    
+    * *Archive* data: more popular
+
+        ```bash
+        tar [function] [options] object1 object2 ...
+        ```
+
+        * `-A`: **concatenate** one archive to another.
+        * `-c`: **create** a new archive.
+        * `-r`: **append** files to an archive.
+        * `-t`: **list** content of an archive.
+        * `-u`: **update** existing files inside the archive with new files.
+        * `-x`: **extract** files from the arhive.
