@@ -94,3 +94,42 @@ Bash Script Tutorial
         rmdir [folder]
         ```
 
+5. View contents
+
+    * View file type:
+
+        ```bash
+        file [file]
+        file [folder]
+        ```
+    
+    * View the whole file:
+
+        * Print the whole content of file to terminal:
+            ```bash
+            cat [file]
+            ```
+            * `-n`: line number.
+            * `-T`: remove tab appearance.
+
+        * View content of file page by page:
+            ```bash
+            more [file]
+            less [file]
+            ```
+
+    * View part of the file:
+        * View the head of the file:
+
+            ```bash
+            head [file]
+            ```
+            * `-n [line-number]`: show the first `[line-number]` lines.
+
+        * View the tail of the file:
+
+            ```bash
+            tail [file]
+            ```
+            * `-n [line-number]`: show the last `[line-number]` lines.
+    
