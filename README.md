@@ -51,11 +51,13 @@ Bash Script Tutorial
 
     * Link files: Instead of copying files all over the places, we can link to the original file to save storage.
         * Symbolic link: a physical file that points to another file.
+
             ```bash
             ln -s [original-file] [symbolic-link-file]
             ```
             * Symbolic link is a representative of a 'pointer' to a file.
         * Hard link: a virtual file that is referencing to the original file.
+
             ```bash
             ln [original-file] [hard-link-file]
             ```
@@ -74,6 +76,21 @@ Bash Script Tutorial
         ```bash
         rm [file]
         rm [folder]
-        ```bash
+        ```
         * `-rf`: also delete everything inside `[folder]`.
         * `-i`: safe guard when removing files.
+4. Managing directories
+
+    * Create a new directory:
+    
+        ```bash
+        mkdir [new-folder]
+        ```
+        * `-p`: also create parent directories (if not exist).
+    * Delete a directory:
+
+        ```bash
+        rm [folder]
+        rmdir [folder]
+        ```
+
