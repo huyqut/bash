@@ -359,23 +359,23 @@ Bash Script Tutorial
 
 ## File Permissions
 
-1. Linux Security
+1. **Linux Security**
 
     * `/etc/passwd`: this file contains users' basic information and UID.
     * `/etc/shadow`: this file contains users' authentication information (such as password).
     * Add a new user: (will be updated later)
 
-2. Linux Groups
+2. **Linux Groups**
 
     * Grouping allows particular users in a group to share resources.
     * Each group is recognized by its ID, called GID.
     * `/etc/group`: this file contains groups' basic information and GID.
     * Create new group: (will be updated later)
 
-3. File Permissions
+3. **File Permissions**
 
     * File permissions can be reviewed via output of command `ls -l`.
-    * Permission format:
+    * Permission *format*:
     
         ```bash
         rwx
@@ -399,12 +399,12 @@ Bash Script Tutorial
             * `n`: network devices
         * `[owner-permission]`, `[group-permission]`, `[others-permission]` follow the format of permissions above.
     
-    * Default file permissions:
+    * *Default* file permissions:
 
         ```bash
         umask
         ```
-        * Show the octal value of permission above (converted from binary: 0 for `-`, 1 for characters ).
+        * Show the **octal** value of permission above (converted from binary: 0 for `-`, 1 for characters ).
         
             String | Binary | Octal
              --- | --- | --- 
@@ -417,7 +417,7 @@ Bash Script Tutorial
             `rw-` | 110 | 6
             `rwx` | 111 | 7
 
-    * Change file permission:
+    * *Change* file permission:
         
         ```bash
         chmod [options] [mode] [file]
@@ -425,13 +425,13 @@ Bash Script Tutorial
         * `[options]`: can be omitted
             * `-r`: recursively change permissions of children files and folders.
         * `[mode]`: there are 2 ways
-            * Octal value: combine octal values of `[owner-permission]`, `[group-permission]`, `[others-permission]`.
+            * **Octal** value: combine octal values of `[owner-permission]`, `[group-permission]`, `[others-permission]`.
 
                 ```bash
                 # r-xrw-rwx
                 chmod 567 [file]
                 ```
-            * Set individually value of 3 types of permission (owner, group and others).
+            * Set **individually** value of 3 types of permission (owner, group and others).
 
                 ```bash
                 [Field][Op][Value]
@@ -452,3 +452,117 @@ Bash Script Tutorial
                     * `t`: save program text.
         * Change ownership: (will be updated later)
 
+## Basic Shell Scripting
+
+1. **Script** file
+
+    * *Create* a script file: a script file is a text file that is prepended with `#!/bin/bash`
+
+        ```bash
+        #!/bin/bash
+        ...
+        ```
+    
+    * *Comment*: a line is commentted out by using `#`.
+
+        ```bash
+        # This is a comment
+        ```
+    
+    * *Print* a message:
+
+        ```bash
+        echo [message]
+        ```
+        * To **insert** a variable into a message, use `$variable`.
+
+            ```bash
+            echo "This is a hello world message, $variable"
+            ```
+    
+    * *Command substitution*: useful for formatting script.
+        * Use back-ticks ` ` `.
+            
+            ```bash
+            hello=`world`
+            ```
+        
+        * Use `$()`:
+
+            ```bash
+            hello=$(world)
+            ```
+
+        * Command substitution creates a subshell to run those commands. Therefore, there might be some local variables in the current shell that are not available in those shells.
+
+2. **Redirect input and output**
+
+    * Redirect *output*: everything from standard output is redirected to the specified output text file.
+
+        ```bash
+        [command] > [output-file]
+        ```
+
+    * Redirect *input*: everything from standard input is redirected to the command.
+
+        ```bash
+        [command] < [input-file]
+        ```
+    
+    * *Inline* input redirection:
+
+        ```bash
+        [command] << [marker] ... [marker]
+        ```
+        * [marker] can be any characters (or string).
+        * Only `...` part will be the standard input of `[command]`.
+
+3. **Pipes**
+
+    ```bash
+    [command-1] | [command-2] | ...
+    ```
+    * Standard output `[command-1]` will be redirected to be standard input of `[command-2]`.
+
+
+4. **Math operations**
+
+    * `expr` command: (will be updated)
+    * Brackets `$[]`:
+
+        ```bash
+        variable=$[1 + 2]
+        ```
+    * All basic operations are integer operations.
+    * To resolve *floating point* number, use `bc` package.
+        
+        ```bash
+        result = $(echo "[options] ; [expression]" | bc)
+        ```
+
+5. Exit script
+
+    * Exit *status code* from the last command:
+
+        ```bash
+        echo $?
+        ```
+        * **Table** of exit codes:
+
+            Code | Description
+            --- | ---
+            `0` | Successful execution of command
+            `1` | Unknown error
+            `2` | Misuse of shell command
+            `126` | Cannot execute command
+            `127` | Command not found
+            `128` | Invalid exit argument
+            `128+x` | Fatal error with signature `x`
+            `130` | Command terminated with `Ctrl+C`
+            `255` | Exit status code out of range
+
+    * Exit command:
+
+        ```bash
+        exit [code]
+        ```
