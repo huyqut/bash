@@ -1,7 +1,7 @@
 # bash
 Bash Script Tutorial
 
-## Basics
+## Basic Commands
 
 1. **Traversing directories**
 
@@ -356,3 +356,98 @@ Bash Script Tutorial
             ```
             * `index` can be replaced with `*` to get all elements.
             * `unset` can be used to remove an element from array but the array size is not changed. It is only the value at the index is null.
+
+## File Permissions
+
+1. Linux Security
+
+    * `/etc/passwd`: this file contains users' basic information and UID.
+    * `/etc/shadow`: this file contains users' authentication information (such as password).
+    * Add a new user: (will be updated later)
+
+2. Linux Groups
+
+    * Grouping allows particular users in a group to share resources.
+    * Each group is recognized by its ID, called GID.
+    * `/etc/group`: this file contains groups' basic information and GID.
+    * Create new group: (will be updated later)
+
+3. File Permissions
+
+    * File permissions can be reviewed via output of command `ls -l`.
+    * Permission format:
+    
+        ```bash
+        rwx
+        ```
+        * `r`: read permission
+        * `w`: write permission
+        * `x`: execute permission
+        * `-`: if any of permissions are not permitted, `-` will replace.
+
+    * Format of permissions of an object in file system:
+
+        ```bash
+        [type][owner-permission][group-permission][others-permission]
+        ```
+        * `[type]`: types of files.
+            * `-`: files
+            * `d`: directories
+            * `l`: links
+            * `c`: character devices
+            * `b`: block devices
+            * `n`: network devices
+        * `[owner-permission]`, `[group-permission]`, `[others-permission]` follow the format of permissions above.
+    
+    * Default file permissions:
+
+        ```bash
+        umask
+        ```
+        * Show the octal value of permission above (converted from binary: 0 for `-`, 1 for characters ).
+            String | Binary | Octal
+             --- | --- | --- 
+            `---` | 000 | 0
+            `--x` | 001 | 1
+            `-w-` | 010 | 2
+            `-wx` | 011 | 3
+            `r--` | 100 | 4
+            `r-x` | 101 | 5
+            `rw-` | 110 | 6
+            `rwx` | 111 | 7
+
+    * Change file permission:
+        
+        ```bash
+        chmod [options] [mode] [file]
+        ```
+        * `[options]`: can be omitted
+            * `-r`: recursively change permissions of children files and folders.
+        * `[mode]`: there are 2 ways
+            * Octal value: combine octal values of `[owner-permission]`, `[group-permission]`, `[others-permission]`.
+
+                ```bash
+                # r-xrw-rwx
+                chmod 567 [file]
+                ```
+            * Set individually value of 3 types of permission (owner, group and others).
+
+                ```bash
+                [Field][Op][Value]
+                ```
+                * `[Field]`: types of permissions
+                    * `u`: user
+                    * `g`: group
+                    * `o`: others
+                    * `a`: all of the above
+                * `[Op]`: operations
+                    * `+`: add permission
+                    * `-`: remove permission
+                    * `=`: set permission
+                * `[Value]`: value of permissions
+                    * Can be replaced with the same value as `[Field]` when using `=`. This means that one type of permission can be configured the same as another.
+                    * `X`: execute permission iff the directory is also permitted.
+                    * `s`: set UID or GID for permission.
+                    * `t`: save program text.
+        * Change ownership: (will be updated later)
+
