@@ -405,6 +405,7 @@ Bash Script Tutorial
         umask
         ```
         * Show the octal value of permission above (converted from binary: 0 for `-`, 1 for characters ).
+        
             String | Binary | Octal
              --- | --- | --- 
             `---` | 000 | 0
