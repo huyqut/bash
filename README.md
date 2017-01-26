@@ -454,7 +454,7 @@ Bash Script Tutorial
 
 ## Basic Shell Scripting
 
-1. **Script** file
+1. **Script file**
 
     * *Create* a script file: a script file is a text file that is prepended with `#!/bin/bash`
 
@@ -540,7 +540,7 @@ Bash Script Tutorial
         result = $(echo "[options] ; [expression]" | bc)
         ```
 
-5. Exit script
+5. **Exit script**
 
     * Exit *status code* from the last command:
 
@@ -565,4 +565,66 @@ Bash Script Tutorial
 
         ```bash
         exit [code]
+        ```
+
+6. **Structured Commands**
+
+    * `if-then` statement:
+
+        ```bash
+        if [command]
+        then
+            [command-1]
+            [command-2]
+            ...
+        fi
+        ```
+        * The `[command]` after `if` is not the same as other programming languages.
+        * Result of the `[command]` condition is based on its exit code.
+            * If the exit code is 0, it means the `[command]` executes successfully and leads to the list of commands inside.
+            * Otherwise, it skips the inside.
+
+    * `if-then-else` statement:
+
+        ```bash
+        if [command]
+        then
+            [command-y-1]
+            [command-y-2]
+            ...
+        else
+            [command-n-1]
+            [command-n-2]
+            ...
+        fi
+        ```
+        * The mechanism is the same as `if-then` statement except that it redirects to `[command-n-*]` list to execute.
+
+    * `elif` statement: equivalent to `else if` to other programming languages.
+
+        ```bash
+        if [command-1]
+        then
+            [command-1-1]
+            ...
+        elif [command-2]
+        then
+            [command-2-1]
+            ...
+        elif [command-3]
+        then
+            [command-3-1]
+            ...
+        else
+            ...
+        fi
+        ```
+
+    * Comparison: 
+
+        ```bash
+        if [ command ]
+        then
+            ...
+        fi
         ```
