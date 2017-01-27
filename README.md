@@ -179,7 +179,7 @@ Bash Script Tutorial
         ```bash
         sort «file»
         ```
-        * Sort file line by line using lexicographical order.
+        * Sort file line by line using lexicographical order and locality.
         * `-n`: sort by treating each line a number.
         * `-M`: sort by recognizing the first 3 letters as Month.
 
@@ -620,12 +620,75 @@ Bash Script Tutorial
         fi
         ```
 
-    * Comparison: 
-
+    * Comparison: To actually apply comparison, add `[]` to the commands after `if`, `elif`.
+        
         ```bash
-        if [ command ]
+        if [ «comparison» ]
         then
             ...
-        fi
+        elif [ «comparison» ]
+        then
+            ...
+        ...
         ```
+        * Numeric comparison:
+
+            Operation | Comparison
+            --- | ---
+            `n1 -eq n2` | Equal to
+            `n1 -ne n2` | Not Equal to
+            `n1 -gt n2` | Greater Than
+            `n1 -lt n2` | Less Than
+            `n1 -ge n2` | Greater than or Equal to
+            `n1 -le n2` | Less than or Equal to
+
+            * `n1` and `n2` can be replaced by a variable or an integer number (no floating point number).
+        
+        * String comparison:
+
+            Operation | Comparison
+            --- | ---
+            `-n str` | Check if `str` has length > 0
+            `-z str` | Check if `str` has length = 0
+            `str1 = str2` | Check if `str1` less than `str2`
+            `str1 != str2` | Check if `str1` less than `str2`
+            `str1 \< str2` | Check if `str1` less than `str2`
+            `str1 \> str2` | Check if `str1` greater than `str2`
+            * All these comparisons are lexicographical order only and does not take into account of locality.
+            * The `\` before `<` and `>` is to escape those characters and distinguish them from redirection operators.
+            * `str`, `str1`, `str2` can be replaced by any variable or string (string format in bash is enclosed by double quotes: `"content"`).
+
+        * File comparison:
+
+            Operation | Comparison
+            --- | ---
+            `-d obj` | Check if `obj` is a directory
+            `-e obj` | Check if `obj` exists
+            `-f obj` | Check if `obj` exists and is a file (not a directory)
+            `-r obj` | Check if `obj` is readable
+            `-w obj` | Check if `obj` is writable
+            `-x obj` | Check if `obj` is executable
+            `-s obj` | Check if `obj` is not empty
+            `-O obj` | Check if `obj` exists and owned by the current user
+            `-G obj` | Check if `obj` exists and belongs to the same group of current user.
+            `obj1 -nt obj2` | Check if `obj1` is New Than `obj2`
+            `obj1 -ot obj2` | Check if `obj1` is Older than `obj2`
+            * `obj`, `obj1` and `obj2` can be replaced by any variable or file/folder name string.
+        
+    * Compound comparison:
+
+        * Logical OR:
+
+        ```bash
+        [condition-1] || [condition-2]
+        ```
+
+        * Logical AND:
+
+        ```bash
+        [condition-1] && [condition-2]
+        ```
+
+        
+
 
