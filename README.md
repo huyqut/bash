@@ -8,9 +8,9 @@ Bash Script Tutorial
     * Change directory:
 
         ```bash
-        cd /your/directory/path
+        cd «your directory path»
         ```
-        * `/your/directory/path` can be absolute or relative path:
+        * `«your directory path»` can be absolute or relative path:
             * Relative path: path that is relative to current directory.
                 * `.`: current directory
                 * `..`: parent directory
@@ -39,59 +39,59 @@ Bash Script Tutorial
     * *Create* a file:
 
         ```bash
-        touch [file-name]
+        touch «your file name»
         ```
 
     * Copy a file:
 
         ```bash
-        cp [from-file] [to-file]
-        cp [from-file] [to-folder]
+        cp «from file» «to file»
+        cp «from file» «to folder»
         ```
 
     * *Link* files: Instead of copying files all over the places, we can link to the original file to save storage.
         * **Symbolic link**: a physical file that points to another file.
 
             ```bash
-            ln -s [original-file] [symbolic-link-file]
+            ln -s «original file» «symbolic link file»
             ```
             * Symbolic link is a representative of a 'pointer' to a file.
         * **Hard link**: a virtual file that is referencing to the original file.
 
             ```bash
-            ln [original-file] [hard-link-file]
+            ln «original file» «hard link file»
             ```
             * Hard link is a representative of a 'reference' to a file.
-            * Hard link can only be created if the `[hard-link-file]` is on the same physical medium. Otherwise, symbolic link must be used.
+            * Hard link can only be created if the `«hard link file»` is on the same physical medium. Otherwise, symbolic link must be used.
     * *Move* files:
         ```bash
-        mv [from-file] [to-file]
-        mv [from-file] [to-folder]
-        mv [from-folder] [to-folder]
+        mv «src file» «dst file»
+        mv «src file» «dst folder»
+        mv «src folder» «dst folder»
         ```
         * To **rename** a file, move it to the same directory with the new name.
         * `-i`: overwrite any existing files that have the same names.
     
     * *Delete* files:
         ```bash
-        rm [file]
-        rm [folder]
+        rm «file»
+        rm «folder»
         ```
-        * `-rf`: also delete everything inside `[folder]`.
+        * `-rf`: also delete everything inside `«folder»`.
         * `-i`: safe guard when removing files.
 4. **Managing directories**
 
     * *Create* a new directory:
     
         ```bash
-        mkdir [new-folder]
+        mkdir «new folder»
         ```
         * `-p`: also create parent directories (if not exist).
     * *Delete* a directory:
 
         ```bash
-        rm [folder]
-        rmdir [folder]
+        rm «folder»
+        rmdir «folder»
         ```
 
 5. **View contents**
@@ -99,39 +99,39 @@ Bash Script Tutorial
     * View *file type*:
 
         ```bash
-        file [file]
-        file [folder]
+        file «file»
+        file «folder»
         ```
     
     * View the *whole* file:
 
         * Print the whole content of file to terminal:
             ```bash
-            cat [file]
+            cat «file»
             ```
             * `-n`: line number.
             * `-T`: remove tab appearance.
 
         * View content of file page by page:
             ```bash
-            more [file]
-            less [file]
+            more «file»
+            less «file»
             ```
 
     * View *part* of the file:
         * View the **head** of the file:
 
             ```bash
-            head [file]
+            head «file»
             ```
-            * `-n [line-number]`: show the first `[line-number]` lines.
+            * `-n «line-number»`: show the first `«line-number»` lines.
 
         * View the **tail** of the file:
 
             ```bash
-            tail [file]
+            tail «file»
             ```
-            * `-n [line-number]`: show the last `[line-number]` lines.
+            * `-n «line number»`: show the last `«line number»` lines.
 
 6. **Peek processes.**
 
@@ -146,8 +146,8 @@ Bash Script Tutorial
     * *Stop* a process:
 
         ```bash
-        kill [pid]
-        killall [process-regex]
+        kill «pid»
+        killall «process-regex»
         ```
     
 7. **Monitor disk spaces.**
@@ -177,7 +177,7 @@ Bash Script Tutorial
     * *Sort* data:
 
         ```bash
-        sort [file-name]
+        sort «file»
         ```
         * Sort file line by line using lexicographical order.
         * `-n`: sort by treating each line a number.
@@ -186,45 +186,45 @@ Bash Script Tutorial
     * *Search* data:
 
         ```bash
-        grep [options] [pattern-regex] [file]
+        grep «options» «regex» «file»
         ```
-        * [options]: 
+        * `«options»`: 
             * `-v`: reverse search (anti-pattern).
             * `-n`: show line number.
             * `-c`: count how many matches.
-            * `-e [pattern]`: to specify multi patterns, add `-e` before and concatenate them to the command line.
-        * [pattern-regex]: pattern regular expression
+            * `-e «pattern»`: to specify multi patterns, add `-e` before and concatenate them to the command line.
+        * `«regex»`: pattern regular expression
 
     * *Compress* data:
 
         * `.bz2` extension:
 
             ```bash
-            bzip2 [file-folder]
+            bzip2 «file or folder»
             ```
 
         * `.z' extension:
 
             ```bash
-            compress [file-folder]
+            compress «file or folder»
             ```
         
         * `.zip` extension:
 
             ```bash
-            zip [file-folder]
+            zip «file or folder»
             ```
 
         * `.gz' extension:
 
             ```bash
-            gzip [file-folder]
+            gzip «file or folder»
             ```
     
     * *Archive* data: more popular
 
         ```bash
-        tar [function] [options] object1 object2 ...
+        tar «function» «options» «object1» «object2» ...
         ```
 
         * `-A`: **concatenate** one archive to another.
@@ -239,25 +239,25 @@ Bash Script Tutorial
     * *Multiple* commands in one line: commands are executed directly in the current shell.
 
         ```bash
-        [command-1] ; [command-2] ; [command-3] ; ...
+        «command-1» ; «command-2» ; «command-3» ; ...
         ```
 
     * *Process list*: commands are executed in a subshell generated by the current shell.
 
         ```bash
-        ( [command-1] ; [command-2] ; ... )
+        ( «command-1» ; «command-2» ; ... )
         ```
 
     * *Idle* a shell:
 
         ```bash
-        sleep [duration]
+        sleep «duration»
         ```
 
     * *Background* mode: add `&` to the end of a command.
 
         ```bash
-        [command] &
+        «command» &
         ```
         * To display background jobs, `jobs` command can be used:
 
@@ -268,9 +268,9 @@ Bash Script Tutorial
     * *Co-processing*: co-processing is the same as background mode but in the subshell.
 
         ```bash
-        coproc [command]
-        coproc [job-name] { [command-1] ; [command-2] ; ... ; }
-        coproc (process-list)
+        coproc «command»
+        coproc «job name» { «command-1» ; «command-2» ; ... ; }
+        coproc «process list»
         ```
     
     * *History* commands: show history of commands used.
@@ -282,7 +282,7 @@ Bash Script Tutorial
     * Command *aliases*: create alias name for complex (or long) command.
 
         ```bash
-        alias [alias-command]='[command]'
+        alias «alias-command»='«command»'
         ```
         * `-p`: show all aliases.
 
@@ -297,8 +297,8 @@ Bash Script Tutorial
     * View value of a variable *individually*:
 
         ```bash
-        env [variable]
-        echo $[variable]
+        env «variable»
+        echo $«variable»
         ```
         * Tips: Use `$` if you only read the variable. Omit `$` if you want to make changes to the variable. (Except for the only case of `env`)
 
@@ -311,50 +311,50 @@ Bash Script Tutorial
     * Set a value to a *local* variable:
 
         ```bash
-        [variable]=[value]
+        «variable»=«value»
         ```
-        * `[value]` can be a number or a string. If it is a string containing spaces, `"` must be used.
+        * `«value»` can be a number or a string. If it is a string containing spaces, `"` must be used.
         * Local variable can be only available to the current shell, not to child shells (and vice versa).
 
     * Create a *global* variable: First, we generate a local variable. Then, use command `export` to publish it globally.
 
         ```bash
-        export [local-variable]
-        export [variable]=[value]
+        export «local variable»
+        export «variable»=«value»
         ```
 
     * *Remove* a local variable:
 
         ```bash
-        unset [variable]
+        unset «variable»
         ```
     
     * `$PATH` global variable: contains directories for commands and binaries of the system.
         * To **append** another directory to the path (*locally* in the current shell):
 
             ```bash
-            PATH=$PATH:[new-directory]
+            PATH=$PATH:«new directory»
             ```
         
         * To update it to be available *globally* (to be used by child shells):
 
             ```bash
-            export PART=$PATH:[new-directory]
+            export PATH=$PATH:«new directory»
             ```
 
     * Variable *array*:
         * *Create* an array:
 
             ```bash
-            [variable] = ( value0 value1 ... )
+            «variable» = ( «value» «value» ... )
             ```
         
         * *Get* value of an array: (`[]` must not be omitted)
 
             ```bash
-            variable[index]
+            «variable»[«index»]
             ```
-            * `index` can be replaced with `*` to get all elements.
+            * `«index»` can be replaced with `*` to get all elements.
             * `unset` can be used to remove an element from array but the array size is not changed. It is only the value at the index is null.
 
 ## File Permissions
@@ -385,19 +385,19 @@ Bash Script Tutorial
         * `x`: execute permission
         * `-`: if any of permissions are not permitted, `-` will replace.
 
-    * Format of permissions of an object in file system:
+    * Format of permissions of an object in file system: (no space between them)
 
         ```bash
-        [type][owner-permission][group-permission][others-permission]
+        «type» «owner» «group» «others»
         ```
-        * `[type]`: types of files.
+        * `«type»`: types of files.
             * `-`: files
             * `d`: directories
             * `l`: links
             * `c`: character devices
             * `b`: block devices
             * `n`: network devices
-        * `[owner-permission]`, `[group-permission]`, `[others-permission]` follow the format of permissions above.
+        * `«owner»`, `«group»`, `«others»` are permissions that follow the format of permissions above.
     
     * *Default* file permissions:
 
@@ -420,33 +420,33 @@ Bash Script Tutorial
     * *Change* file permission:
         
         ```bash
-        chmod [options] [mode] [file]
+        chmod «options» «mode» «file»
         ```
-        * `[options]`: can be omitted
+        * `«options»`: can be omitted
             * `-r`: recursively change permissions of children files and folders.
-        * `[mode]`: there are 2 ways
-            * **Octal** value: combine octal values of `[owner-permission]`, `[group-permission]`, `[others-permission]`.
+        * `«mode»`: there are 2 ways
+            * **Octal** value: combine octal values of `«owner-permission»`, `«group-permission»`, `«others-permission»`.
 
                 ```bash
                 # r-xrw-rwx
-                chmod 567 [file]
+                chmod 567 «file»
                 ```
             * Set **individually** value of 3 types of permission (owner, group and others).
 
                 ```bash
-                [Field][Op][Value]
+                «Field»«Op»«Value»
                 ```
-                * `[Field]`: types of permissions
+                * `«Field»`: types of permissions
                     * `u`: user
                     * `g`: group
                     * `o`: others
                     * `a`: all of the above
-                * `[Op]`: operations
+                * `«Op»`: operations
                     * `+`: add permission
                     * `-`: remove permission
                     * `=`: set permission
-                * `[Value]`: value of permissions
-                    * Can be replaced with the same value as `[Field]` when using `=`. This means that one type of permission can be configured the same as another.
+                * `«Value»`: value of permissions
+                    * Can be replaced with the same value as `«Field»` when using `=`. This means that one type of permission can be configured the same as another.
                     * `X`: execute permission iff the directory is also permitted.
                     * `s`: set UID or GID for permission.
                     * `t`: save program text.
@@ -472,7 +472,7 @@ Bash Script Tutorial
     * *Print* a message:
 
         ```bash
-        echo [message]
+        echo «message»
         ```
         * To **insert** a variable into a message, use `$variable`.
 
@@ -500,29 +500,29 @@ Bash Script Tutorial
     * Redirect *output*: everything from standard output is redirected to the specified output text file.
 
         ```bash
-        [command] > [output-file]
+        «command» > «output-file»
         ```
 
     * Redirect *input*: everything from standard input is redirected to the command.
 
         ```bash
-        [command] < [input-file]
+        «command» < «input-file»
         ```
     
     * *Inline* input redirection:
 
         ```bash
-        [command] << [marker] ... [marker]
+        «command» << «marker» «content» «marker»
         ```
-        * [marker] can be any characters (or string).
-        * Only `...` part will be the standard input of `[command]`.
+        * «marker» can be any characters (or string).
+        * Only `«content»` part will be the standard input of `«command»`.
 
 3. **Pipes**
 
     ```bash
-    [command-1] | [command-2] | ...
+    «command-1» | «command-2» | ...
     ```
-    * Standard output `[command-1]` will be redirected to be standard input of `[command-2]`.
+    * Standard output `«command-1»` will be redirected to be standard input of `«command-2»`.
 
 
 4. **Math operations**
@@ -537,7 +537,7 @@ Bash Script Tutorial
     * To resolve *floating point* number, use `bc` package.
         
         ```bash
-        result = $(echo "[options] ; [expression]" | bc)
+        result = $(echo "«options» ; «expression»" | bc)
         ```
 
 5. **Exit script**
@@ -564,7 +564,7 @@ Bash Script Tutorial
     * Exit command:
 
         ```bash
-        exit [code]
+        exit «code»
         ```
 
 6. **Structured Commands**
@@ -572,48 +572,48 @@ Bash Script Tutorial
     * `if-then` statement:
 
         ```bash
-        if [command]
+        if «command»
         then
-            [command-1]
-            [command-2]
+            «command-1»
+            «command-2»
             ...
         fi
         ```
-        * The `[command]` after `if` is not the same as other programming languages.
-        * Result of the `[command]` condition is based on its exit code.
-            * If the exit code is 0, it means the `[command]` executes successfully and leads to the list of commands inside.
+        * The `«command»` after `if` is not the same as other programming languages.
+        * Result of the `«command»` condition is based on its exit code.
+            * If the exit code is 0, it means the `«command»` executes successfully and leads to the list of commands inside.
             * Otherwise, it skips the inside.
 
     * `if-then-else` statement:
 
         ```bash
-        if [command]
+        if «command»
         then
-            [command-y-1]
-            [command-y-2]
+            «command-y-1»
+            «command-y-2»
             ...
         else
-            [command-n-1]
-            [command-n-2]
+            «command-n-1»
+            «command-n-2»
             ...
         fi
         ```
-        * The mechanism is the same as `if-then` statement except that it redirects to `[command-n-*]` list to execute.
+        * The mechanism is the same as `if-then` statement except that it redirects to `«command-n-*»` list to execute.
 
     * `elif` statement: equivalent to `else if` to other programming languages.
 
         ```bash
-        if [command-1]
+        if «command-1»
         then
-            [command-1-1]
+            «command-1-1»
             ...
-        elif [command-2]
+        elif «command-2»
         then
-            [command-2-1]
+            «command-2-1»
             ...
-        elif [command-3]
+        elif «command-3»
         then
-            [command-3-1]
+            «command-3-1»
             ...
         else
             ...
@@ -628,3 +628,4 @@ Bash Script Tutorial
             ...
         fi
         ```
+
