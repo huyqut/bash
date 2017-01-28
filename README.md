@@ -15,6 +15,11 @@ Bash Script Tutorial
                 * `.`: current directory
                 * `..`: parent directory
             * Absolute path: full path from the root to the directory.
+        * Example: change directory of current terminal to `~/Code/bash`
+
+            ```bash
+            $ cd ~/Code/bash
+            ```
 
     * Get absolute path of current directory:
         
@@ -41,13 +46,30 @@ Bash Script Tutorial
         ```bash
         touch «your file name»
         ```
+        * Example: create a `hello_bash` text file in the current directory.
+
+            ```bash
+            touch hello_bash
+            ```
 
     * Copy a file:
 
         ```bash
-        cp «from file» «to file»
-        cp «from file» «to folder»
+        cp «src file» «dst file»
+        cp «src file» «dst folder»
         ```
+
+        * Example:
+            * Copy `hello_bash` from `~/Code/bash` to `~/Code/script/` with a new name `hello_script`.
+                
+                ```bash
+                $ cp hello_bash ~/Code/script/hello_script
+                ```
+            * Copy `hello_bash` from `~/Code/bash` to `~/Code/script/` with the same name.
+                ```bash
+                $ cp hello_bash ~/Code/script/
+                ```
+
 
     * *Link* files: Instead of copying files all over the places, we can link to the original file to save storage.
         * **Symbolic link**: a physical file that points to another file.
@@ -71,6 +93,22 @@ Bash Script Tutorial
         ```
         * To **rename** a file, move it to the same directory with the new name.
         * `-i`: overwrite any existing files that have the same names.
+        * Example:
+            * Move file `hello_bash` to current directory with a new name `hello_script` (renaming):
+
+                ```bash
+                $ mv hello_bash hello_script
+                ```
+            * Move file `hello_bash` to folder `~/Code/script`:
+
+                ```bash
+                $ mv hello_bash ~/Code/script
+                ```
+            * Move folder `~/Code/bash/` to inside folder `~/Code/script
+
+                ```bash
+                $ mv ~/Code/bash/ ~/Code/script
+                ```
     
     * *Delete* files:
         ```bash
@@ -79,6 +117,18 @@ Bash Script Tutorial
         ```
         * `-rf`: also delete everything inside `«folder»`.
         * `-i`: safe guard when removing files.
+        * Example:
+            * Delete file `hello_bash`:
+            
+                ```bash
+                $ rm hello_bash
+                ```
+            * Delete folder `~/Code/script` and everything inside it:
+
+                ```bash
+                $ rm -rf ~/Code/script
+                ```
+
 4. **Managing directories**
 
     * *Create* a new directory:
@@ -87,12 +137,22 @@ Bash Script Tutorial
         mkdir «new folder»
         ```
         * `-p`: also create parent directories (if not exist).
+        * Example: create a new folder `tutor` inside current directory:
+
+            ```bash
+            mkdir tutor
+            ```
     * *Delete* a directory:
 
         ```bash
         rm «folder»
         rmdir «folder»
         ```
+        * Example: delete folder `tutor` inside current directory
+
+            ```bash
+            rmdir tutor
+            ```
 
 5. **View contents**
 
@@ -631,6 +691,20 @@ Bash Script Tutorial
             ...
         ...
         ```
+
+        * Double square brackets:
+
+        ```bash
+        if [[ «comparison» ]]
+        then
+            ...
+        elif [[ «comparison» ]]
+        then
+            ...
+        ...
+        ```
+            * Square brackets remove the requirements of enclosing numeric literals and variables (in both string and numeric comparison) with double quotes `""`.
+
         * Numeric comparison:
 
             Operation | Comparison
