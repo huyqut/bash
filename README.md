@@ -70,7 +70,6 @@ Bash Script Tutorial
                 $ cp hello_bash ~/Code/script/
                 ```
 
-
     * *Link* files: Instead of copying files all over the places, we can link to the original file to save storage.
         * **Symbolic link**: a physical file that points to another file.
 
@@ -717,6 +716,13 @@ Bash Script Tutorial
             `n1 -le n2` | Less than or Equal to
 
             * `n1` and `n2` can be replaced by a variable or an integer number (no floating point number).
+            * Examples:
+
+                Single Bracket | Double Brackets
+                :---: | :---:
+                `[ 123 -eq 222 ]` | `[[ 123 -eq 222 ]]`
+                `[ $x -gt 333 ]` | `[[ $x -gt 333 ]]`
+                `[ 333 -le $x ]` | `[[ 333 -le $x ]]`
         
         * String comparison:
 
@@ -726,11 +732,15 @@ Bash Script Tutorial
             `-z str` | Check if `str` has length = 0
             `str1 = str2` | Check if `str1` less than `str2`
             `str1 != str2` | Check if `str1` less than `str2`
-            `str1 \< str2` | Check if `str1` less than `str2`
-            `str1 \> str2` | Check if `str1` greater than `str2`
+            `str1 < str2` | Check if `str1` less than `str2`
+            `str1 > str2` | Check if `str1` greater than `str2`
             * All these comparisons are lexicographical order only and does not take into account of locality.
-            * The `\` before `<` and `>` is to escape those characters and distinguish them from redirection operators.
             * `str`, `str1`, `str2` can be replaced by any variable or string (string format in bash is enclosed by double quotes: `"content"`).
+            * Examples:
+
+                Single Bracket | Double Brackets
+                :---: | :---:
+                `[ "xyz" = "abc" ]` | `[[ "xyz" = "abc" ]]`
 
         * File comparison:
 

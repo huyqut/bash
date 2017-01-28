@@ -1,6 +1,9 @@
 #!/bin/bash
 
-if pwd
+x="abc"
+if [[ $x = xyz ]]
 then
-    echo "It worked!"
+    echo "Yes"
+else
+    echo "No"
 fi
