@@ -1,9 +1,10 @@
 #!/bin/bash
 
-x="abc"
-if [[ $x = xyz ]]
+v="abc"
+u="xyz"
+if [ $u = $v ]
 then
-    echo "Yes"
+    echo "yes"
 else
-    echo "No"
+    echo "no"
 fi

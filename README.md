@@ -3,6 +3,13 @@ Bash Script Tutorial
 
 ## Basic Commands
 
+1. **Print a string**
+
+    * Print with a new line:
+
+        `echo «content»`
+        
+
 1. **Traversing directories**
 
     * Change directory:
@@ -716,13 +723,13 @@ Bash Script Tutorial
             `n1 -le n2` | Less than or Equal to
 
             * `n1` and `n2` can be replaced by a variable or an integer number (no floating point number).
-            * Examples:
+            * Examples: Single bracket and Double brackets are the same in this situation
 
-                Single Bracket | Double Brackets
-                :---: | :---:
-                `[ 123 -eq 222 ]` | `[[ 123 -eq 222 ]]`
-                `[ $x -gt 333 ]` | `[[ $x -gt 333 ]]`
-                `[ 333 -le $x ]` | `[[ 333 -le $x ]]`
+                ```bash
+                [ 123 -eq 222 ]
+                [ $x -gt 333 ]
+                [ 333 -le $x ]
+                ```
         
         * String comparison:
 
@@ -741,6 +748,9 @@ Bash Script Tutorial
                 Single Bracket | Double Brackets
                 :---: | :---:
                 `[ "xyz" = "abc" ]` | `[[ "xyz" = "abc" ]]`
+                `[ "$v" = "abc"]` | `[[ $v = "abc" ]]`
+                `[ "abc" = "$v" ]` | `[[ "abc" = $v ]]`
+                `[ $v = $u ]` | `[[ $v = $u ]]`
 
         * File comparison:
 
@@ -764,15 +774,38 @@ Bash Script Tutorial
         * Logical OR:
 
         ```bash
-        [condition-1] || [condition-2]
+        [ «condition-1» ] || [ «condition-2» ]
         ```
 
         * Logical AND:
 
         ```bash
-        [condition-1] && [condition-2]
+        [ «condition-1» ] && [ «condition-2» ]
         ```
 
-        
+        * Nested comparisons: use double brackets `[[ condition ]]`.
+
+        ```bash
+        [[ ... && ... || ... || ]]
+        ```
+
+    * Double parentheses: use `(( ))` for advanced mathemtical operations and/or comparison.
+        * `++var`: pre-increment
+        * `--var`: pre-decrement
+        * `var++`: post-increment
+        * `var--`: post-decrement
+        * `!`: logical negation
+        * `~`: bitwise negation
+        * `**`: exponentiation
+        * `<<`: bitwise left shift
+        * `>>`: bitwise right shift
+        * `&`: bitwise AND operator
+        * `|`: bitwise OR operator
+        * `&&`: logical AND operator
+        * `||`: logical OR operator
+    
+    *  Double Parentheses vs Double Brackets? Use parenthesis for number manipulation and brackets for string handling.
+
+    * Double parentheses can replace conditions inside `if` command.
 
 
