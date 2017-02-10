@@ -1,10 +1,6 @@
 #!/bin/bash
 
-v="abc"
-u="xyz"
-if [ $u = $v ]
-then
-    echo "yes"
-else
-    echo "no"
-fi
+for city in "New York" Vancouver "Washinton DC"
+do
+    echo "A USA city is $city"
+done

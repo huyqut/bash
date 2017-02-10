@@ -442,7 +442,7 @@ Bash Script Tutorial
 
     * File permissions can be reviewed via output of command `ls -l`.
     * Permission *format*:
-    
+
         ```bash
         rwx
         ```
@@ -484,7 +484,7 @@ Bash Script Tutorial
             `rwx` | 111 | 7
 
     * *Change* file permission:
-        
+
         ```bash
         chmod «options» «mode» «file»
         ```
@@ -548,7 +548,7 @@ Bash Script Tutorial
     
     * *Command substitution*: useful for formatting script.
         * Use back-ticks ` ` `.
-            
+
             ```bash
             hello=`world`
             ```
@@ -599,9 +599,10 @@ Bash Script Tutorial
         ```bash
         variable=$[1 + 2]
         ```
+
     * All basic operations are integer operations.
     * To resolve *floating point* number, use `bc` package.
-        
+
         ```bash
         result = $(echo "«options» ; «expression»" | bc)
         ```
@@ -687,7 +688,7 @@ Bash Script Tutorial
         ```
 
     * Comparison: To actually apply comparison, add `[]` to the commands after `if`, `elif`.
-        
+
         ```bash
         if [ «comparison» ]
         then
@@ -804,8 +805,81 @@ Bash Script Tutorial
         * `&&`: logical AND operator
         * `||`: logical OR operator
     
-    *  Double Parentheses vs Double Brackets? Use parenthesis for number manipulation and brackets for string handling.
+    * Double Parentheses vs Double Brackets? Use parenthesis for number manipulation and brackets for string handling.
 
     * Double parentheses can replace conditions inside `if` command.
 
+    * Loops: `for` command
 
+        ```bash
+        for «var» in «list»
+        do
+            « commands »
+        done
+        ```
+
+        * Example:
+            * Read from a string literal:
+
+                ```bash
+                for country in Russia England France
+                do
+                    echo A European country is $country
+                done
+                ```
+            
+            * Read from a string variable:
+
+                ```bash
+                countries="Russia England France"
+                for country in $countries
+                do
+                    echo A European country is $country
+                done
+                ```
+            
+            * Read from a complex string literal:
+
+                ```bash
+                for city in "New York" Vancouver "Washinton DC"
+                do
+                    echo "A USA city is $city"
+                done
+                ```
+            
+            * Read values from a command: string returned from command is processed as above.
+
+                ```bash
+                for data in $(cat $file)
+                do
+                    echo data
+                done
+                ```
+            
+            * Reading a directory using wildcards:
+
+                ```bash
+                for file in ~/bash/*
+                do
+                    ...
+                done
+                ```
+        
+        * C-style loop:
+
+            ```bash
+            for (( «var ass»; «condition»; «iteration»))
+            do
+                ...
+            done
+            ```
+        
+            * Example:
+
+                ```bash
+                for (( i=0, j=10; i < 10; ++i, j*= 2))
+                do
+                    echo $i is $j
+                done
+                ```
+            
